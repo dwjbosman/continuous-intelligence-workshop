@@ -15,6 +15,7 @@ class Model(Enum):
     RANDOM_FOREST = 1
     ADABOOST = 2
     GRADIENT_BOOST = 3
+    
 
 
 def load_data():
@@ -59,13 +60,15 @@ def encode(train, validate):
     return train, validate
 
 
+
+
 def train_model(train, model=Model.DECISION_TREE, seed=None):
     print("Training model using regressor: {}".format(model.name))
     train_dropped = train.drop('unit_sales', axis=1)
     target = train['unit_sales']
 
     if model == Model.RANDOM_FOREST:
-        params = {'n_estimators': 10}
+        params = {'n_estimators': 40}
         clf = ensemble.RandomForestRegressor(random_state=seed, **params)
     elif model == Model.ADABOOST:
         params = {'n_estimators': 50, 'learning_rate': 1.0, 'loss':'linear'}
@@ -137,4 +140,4 @@ def main(model=Model.DECISION_TREE, seed=None):
 
 
 if __name__ == "__main__":
-    main(model=Model.ADABOOST, seed=8675309)
+    main(model=Model.RANDOM_FOREST, seed=8675308)
