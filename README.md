@@ -7,6 +7,8 @@ workshop. This material has been developed and is continuously evolved by
 conferences such as: Yottabyte 2018, World AI Summit 2018, Strata London 2019,
 and others.
 
+test
+
 ## Pre-Requisites
 
 In order to run this workshop, you will need:
